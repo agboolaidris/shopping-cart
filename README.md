@@ -11,4 +11,4 @@ stack:
 2. typescript
 3. tailwindcss
 
-![I am GitHub Readme Generator's creator](https://github.com/agboolaidris/agboolaidris/blob/main/resize-16648206304885985921.png?raw=true)
+![I am GitHub Readme Generator's creator](https://raw.githubusercontent.com/agboolaidris/shopping-cart/main/Screenshot%202022-11-09%20at%2011.32.16.png)
