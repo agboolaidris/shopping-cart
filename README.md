@@ -10,3 +10,5 @@ stack:
 1. Nextjs
 2. typescript
 3. tailwindcss
+
+(https://github.com/agboolaidris/agboolaidris/blob/main/resize-16648206304885985921.png?raw=true)
