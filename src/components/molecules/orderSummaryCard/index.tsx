@@ -1,6 +1,15 @@
 import React from "react";
-
-function OrderSummaryCard() {
+import { currencyFormatter } from "../../../helpers/currencyFormatter";
+interface OrderSummaryCard {
+  taxEstimate: number;
+  shippingEstimate: number;
+  subTotal: number;
+}
+function OrderSummaryCard({
+  taxEstimate,
+  shippingEstimate,
+  subTotal,
+}: OrderSummaryCard) {
   return (
     <div className="w-[400px] max-w-full mt-10 md:mt-0">
       <div className="bg-gray-100  p-10">
@@ -10,19 +19,24 @@ function OrderSummaryCard() {
         <div className="my-10 divide-y">
           <div className="flex justify-between   text-sm text-gray-500  py-5">
             <p>Subtotal</p>
-            <p>$262.00</p>
+            <p>{currencyFormatter(subTotal, "NGN")}</p>
           </div>
           <div className="flex justify-between   text-sm text-gray-500 py-5 ">
-            <p>Subtotal</p>
-            <p>$262.00</p>
+            <p>Shipping Estimate</p>
+            <p>{currencyFormatter(shippingEstimate, "NGN")}</p>
           </div>
           <div className="flex justify-between   text-sm text-gray-500  py-5">
-            <p>Subtotal</p>
-            <p>$262.00</p>
+            <p>Tax Estimate</p>
+            <p>{currencyFormatter(taxEstimate, "NGN")}</p>
           </div>
           <div className="flex justify-between text-base font-medium text-gray-900 py-5 ">
             <p>Subtotal</p>
-            <p>$262.00</p>
+            <p>
+              {currencyFormatter(
+                taxEstimate + shippingEstimate + subTotal,
+                "NGN"
+              )}
+            </p>
           </div>
         </div>
 

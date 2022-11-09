@@ -16,7 +16,10 @@ const initialState: InitialState = {
 const StateContext = createContext<InitialState>(initialState);
 const DispatchContext = createContext<React.Dispatch<any>>(() => null);
 
-const globalReducer = ({ shoppingCart }: InitialState, action: any) => ({
+const globalReducer = (
+  { shoppingCart }: InitialState,
+  action: any
+): InitialState => ({
   shoppingCart: shoppingCartReducer(shoppingCart, action),
 });
 

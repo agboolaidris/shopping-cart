@@ -1,9 +1,12 @@
 export interface ProductType {
+  id: number;
   price: number;
   quantity: number;
-  description: string;
+  name: string;
   color: string;
   image: string;
+  href: string;
+  packagePrice: number;
 }
 
 export interface ShoppingCartIntialStateType {
@@ -15,5 +18,13 @@ export interface ShoppingCartIntialStateType {
 
 export interface ShopingCartActionType {
   type: string;
-  payload: ShoppingCartIntialStateType;
+  productId?: number;
+  payload?: ProductType[];
 }
+
+export const ShoppingType = {
+  RemoveITEM: "REMOVE-ITEM",
+  ReduceQTY: "REDUCE-QTY",
+  IncreaseQTY: "INCREASE-QTY",
+  FetchCART: "FETCH-CART",
+};
