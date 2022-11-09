@@ -20,6 +20,26 @@ const TotalProductPrice = (products: ProductType[]) => {
   return num;
 };
 
+const fetchPRODUCT = (
+  shoppingCartIntialState: ShoppingCartIntialStateType,
+  action: ShopingCartActionType
+): ShoppingCartIntialStateType => {
+  let products: ProductType[] = [];
+
+  if (action.payload) {
+    products = action.payload?.map((product) => ({
+      ...product,
+      packagePrice: product.price * product.quantity,
+    }));
+  }
+
+  return {
+    ...shoppingCartIntialState,
+    products,
+    productsPrice: TotalProductPrice(products),
+  };
+};
+
 const removePRODUCT = (
   shoppingCartIntialState: ShoppingCartIntialStateType,
   action: ShopingCartActionType
@@ -84,11 +104,7 @@ export const shoppingCartReducer = (
 ): ShoppingCartIntialStateType => {
   switch (action.type) {
     case ShoppingType.FetchCART:
-      return {
-        ...state,
-        products: action.payload || [],
-        productsPrice: TotalProductPrice(state.products),
-      };
+      return fetchPRODUCT(state, action);
     case ShoppingType.RemoveITEM:
       return removePRODUCT(state, action);
 
